@@ -1,0 +1,18 @@
+package com.SoubraTeam.GConge.exceptions;
+
+public class SalaryMatExceptionResonse {
+	private String slarieMatricule;
+	
+	public SalaryMatExceptionResonse(String slarieMatricule) {
+		this.slarieMatricule = slarieMatricule;
+	}
+
+	public String getSlarieMatricule() {
+		return slarieMatricule;
+	}
+
+	public void setSlarieMatricule(String slarieMatricule) {
+		this.slarieMatricule = slarieMatricule;
+	}
+	
+}

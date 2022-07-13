@@ -1,0 +1,29 @@
+package com.SoubraTeam.GConge.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.SoubraTeam.GConge.domain.Salarie;
+import com.SoubraTeam.GConge.exceptions.SalarieMatException;
+import com.SoubraTeam.GConge.repositories.SalarieRepository;
+
+@Service
+public class SalarieService {
+	@Autowired
+	private SalarieRepository salarieRepository;
+	
+	public Salarie saveOrUpdateSalarie(Salarie salarie) {
+		try {
+			
+			return salarieRepository.save(salarie);
+		} catch (Exception e) {
+			throw new SalarieMatException("Salary Matricule [ "+salarie.getMatricule()+" ] already existe.");
+		}
+	}
+	
+	
+	//public Salarie findSalarieByMatricule(String salarieMat) {
+	//	return salarieRepository.findBySalarieMatricule(salarieMat);
+	//}
+	
+}

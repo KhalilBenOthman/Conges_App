@@ -1,0 +1,4 @@
+#spring.datasource.url = jdbc:postgresql://ec2-34-242-84-130.eu-west-1.compute.amazonaws.com:5432/dcqmds4hchg5p8
+#spring.datasource.username = nklkaxvgeirkaz
+#spring.datasource.password = 7b57026f09ff9623ce2d0ade309ce9b19be6505aeeb53749ebe355388ef261f7vspring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect

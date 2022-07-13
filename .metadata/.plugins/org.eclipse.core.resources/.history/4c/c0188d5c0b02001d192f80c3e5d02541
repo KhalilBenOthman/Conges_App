@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.exceptions;
+
+public class TA_CongesNotFoundException {
+
+}

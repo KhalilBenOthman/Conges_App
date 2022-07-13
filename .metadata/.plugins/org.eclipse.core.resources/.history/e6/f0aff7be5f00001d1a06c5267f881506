@@ -1,0 +1,56 @@
+package com.SoubraTeam.GConge.domain;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+@Entity
+public class RelatCongeType {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String TACongeCode;
+	
+	//OneToOne with TA_Conges
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "TAConge_id",nullable = false)
+	@JsonIgnore
+	private TA_Conges TAConges;
+	
+	//OneToMany with Conges
+	
+	
+	
+	public RelatCongeType() {
+		super();
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTACongeCode() {
+		return TACongeCode;
+	}
+	public void setTACongeCode(String tACongeCode) {
+		TACongeCode = tACongeCode;
+	}
+	public TA_Conges getTAConges() {
+		return TAConges;
+	}
+	public void setTAConges(TA_Conges tAConges) {
+		TAConges = tAConges;
+	}
+	
+
+	
+}

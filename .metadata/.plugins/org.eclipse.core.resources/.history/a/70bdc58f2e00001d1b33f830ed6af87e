@@ -1,0 +1,104 @@
+package com.SoubraTeam.GConge.domain;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.validation.constraints.NotBlank;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+public class Salarie {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@NotBlank(message = "Matricule est obligatoire.")
+	@Column(updatable = false, unique = true)
+	private String matricule;	
+	@NotBlank(message = "CIN est obligatoire.")
+	private String cin;
+	@NotBlank(message = "Nom est obligatoire.")
+	private String nom;
+	@NotBlank(message = "prénom est obligatoire.")
+	private String prenom;
+	private Date dateNaissance;
+	@NotBlank(message = "adresse est obligatoire.")
+	private String addresse;
+	@JsonFormat(pattern = "yyyy-mm-dd")
+	private Date create_At;
+	@JsonFormat(pattern = "yyyy-mm-dd")
+	private Date update_At;
+	
+	@PrePersist
+	protected void onCreate() {
+		this.create_At = new Date();
+	}
+	@PreUpdate
+	protected void onUpdate() {
+		this.update_At = new Date();
+	}
+	public Salarie() {}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getMatricule() {
+		return matricule;
+	}
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
+	}
+	public String getCin() {
+		return cin;
+	}
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public Date getDateNaissance() {
+		return dateNaissance;
+	}
+	public void setDateNaissance(Date dateNaissance) {
+		this.dateNaissance = dateNaissance;
+	}
+	public String getAddresse() {
+		return addresse;
+	}
+	public void setAddresse(String addresse) {
+		this.addresse = addresse;
+	}
+	public Date getCreate_At() {
+		return create_At;
+	}
+	public void setCreate_At(Date create_At) {
+		this.create_At = create_At;
+	}
+	public Date getUpdate_At() {
+		return update_At;
+	}
+	public void setUpdate_At(Date update_At) {
+		this.update_At = update_At;
+	}
+	
+	
+}

@@ -1,0 +1,15 @@
+package com.SoubraTeam.GConge.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.SoubraTeam.GConge.domain.Salarie;
+
+public interface SalarieRepository extends CrudRepository<Salarie, Long>{
+	
+	Salarie findBymatricule(String salarieMat);
+
+	@Override
+	Iterable<Salarie> findAll();
+	
+	
+}

@@ -1,0 +1,39 @@
+package com.SoubraTeam.GConge.web;
+
+import javax.validation.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.SoubraTeam.GConge.domain.Salarie;
+import com.SoubraTeam.GConge.services.MapValidationErrorService;
+import com.SoubraTeam.GConge.services.SalarieService;
+
+
+
+
+@RestController
+@RequestMapping("/api/Salarie")
+public class SalarieController {
+	@Autowired
+	private SalarieService salarieService;
+	
+	@Autowired
+	private MapValidationErrorService mapValidationErrorService;
+	
+	@PostMapping("")
+	public ResponseEntity<?> createNewSalarie(@Valid @RequestBody Salarie salarie, BindingResult result){	
+		
+		ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationError(result);
+		if (errorMap != null) return errorMap;
+		
+		Salarie salarie1 = salarieService.saveOrUpdateSalarie(salarie);
+		return new ResponseEntity<Salarie>(salarie1, HttpStatus.CREATED);
+	}
+}

@@ -1,0 +1,25 @@
+package com.SoubraTeam.GConge.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.SoubraTeam.GConge.domain.Conges;
+import com.SoubraTeam.GConge.domain.RelatCongeType;
+import com.SoubraTeam.GConge.repositories.CongesRepository;
+import com.SoubraTeam.GConge.repositories.RelatCongeTypeRepository;
+
+public class CongesService {
+	
+	@Autowired
+	private RelatCongeTypeRepository relatCongeTypeRepository;
+	@Autowired
+	private CongesRepository congesRepository ;
+	
+	public Conges addConges(String TACongeCode, Conges conge) {
+		RelatCongeType relatCongeType = relatCongeTypeRepository.findByTACongeCode(TACongeCode);
+		conge.setRelatCongeType(relatCongeType);
+		conge.setTACongeCode(TACongeCode);
+		
+		
+		return congesRepository.save(conge);
+	}
+}

@@ -1,0 +1,33 @@
+package com.SoubraTeam.GConge.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.SoubraTeam.GConge.domain.TA_Conges;
+import com.SoubraTeam.GConge.exceptions.TA_CongesCodeException;
+import com.SoubraTeam.GConge.repositories.TA_CongesRepository;
+
+
+@Service
+public class TA_CongeService {
+	@Autowired
+	private TA_CongesRepository ta_CongesRepository;
+	
+	public TA_Conges saveOrUpdateTaConges (TA_Conges ta_Conges) {
+		try {
+			
+			return ta_CongesRepository.save(ta_Conges);
+		} catch (Exception e) {
+			throw new TA_CongesCodeException("une famille de congé avec le code '"+ta_Conges.getCode()+"' déja existe.");
+		}
+		
+	}
+	
+	public TA_Conges findByTACongeCode(String code) {
+		TA_Conges ta_Conge = ta_CongesRepository.findBycode(code);
+		if (ta_Conge == null) {
+			throw new TA_CongesCodeException("404 : conges n'existe pas avec le code :"+code);
+		}
+		return ta_Conge;
+	}
+} 

@@ -1,0 +1,21 @@
+package com.SoubraTeam.GConge.security;
+
+import java.util.Date;
+import org.springframework.security.core.Authentication;
+import com.SoubraTeam.GConge.domain.User;
+import static com.SoubraTeam.GConge.security.SecurityConstants.EXPIRATIONTIME;
+
+public class JwtTokenProvider {
+
+	//Generate a token
+	public String generateToken(Authentication authentication) {
+		User user = (User) authentication.getPrincipal();
+		Date now = new Date(System.currentTimeMillis()); 
+		Date expiredDate = new Date(now.getTime() + EXPIRATIONTIME); 
+	}
+	
+	//validate token
+	
+	//Get user id from token
+	
+}

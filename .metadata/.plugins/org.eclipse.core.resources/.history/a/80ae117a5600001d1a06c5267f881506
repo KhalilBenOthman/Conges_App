@@ -1,0 +1,13 @@
+package com.SoubraTeam.GConge.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.SoubraTeam.GConge.repositories.TA_CongesRepository;
+
+
+@Service
+public class TA_CongeService {
+	@Autowired
+	private TA_CongesRepository ta_CongesRepository;
+}

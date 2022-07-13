@@ -1,0 +1,15 @@
+package com.SoubraTeam.GConge.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.SoubraTeam.GConge.domain.Salarie;
+import com.SoubraTeam.GConge.repositories.SalarieRepository;
+
+public class SalarieService {
+	@Autowired
+	private SalarieRepository salarieRepository;
+	
+	public Salarie saveOrUpdateUtilisateur(Salarie salarie) {
+		return salarieRepository.save(salarie);
+	}
+}

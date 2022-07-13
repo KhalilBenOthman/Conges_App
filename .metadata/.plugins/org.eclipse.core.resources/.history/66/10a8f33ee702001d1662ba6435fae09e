@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.payload;
+
+public class LoginRequest {
+
+}

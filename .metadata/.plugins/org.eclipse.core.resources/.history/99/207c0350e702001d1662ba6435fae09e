@@ -1,0 +1,11 @@
+package com.SoubraTeam.GConge.payload;
+
+import javax.validation.constraints.NotBlank;
+
+public class LoginRequest {
+
+	@NotBlank(message="Username est obligatoire")
+	private String username;
+	@NotBlank(message="password est obligatoire")
+	private String password;
+}

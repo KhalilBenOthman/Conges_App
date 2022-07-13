@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.repositories;
+
+public interface UserRepository {
+
+}

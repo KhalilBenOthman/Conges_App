@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.services;
+
+public class CustomUserDetailsService {
+
+}

@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.Validator;
+
+public class UserValidator {
+
+}

@@ -1,0 +1,5 @@
+package com.SoubraTeam.GConge.security;
+
+public class JwtTokenProvider {
+
+}

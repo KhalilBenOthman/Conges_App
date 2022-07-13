@@ -1,0 +1,20 @@
+package com.SoubraTeam.GConge.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.SoubraTeam.GConge.domain.Salarie;
+import com.SoubraTeam.GConge.services.SalarieService;
+
+public class SalarieController {
+	@Autowired
+	private SalarieService salarieService;
+	
+	@PostMapping("")
+	public ResponseEntity<Salarie> createNewSalarie(@RequestBody Salarie salarie){	
+		return new ResponseEntity<Salarie>(salarie, HttpStatus.CREATED);
+	}
+}
